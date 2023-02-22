@@ -1,5 +1,7 @@
 ﻿# include <Siv3D.hpp> // OpenSiv3D v0.6.6
 
+// LSystemを2Dで実装してみる
+
 void Main()
 {
 	// 背景の色を設定 | Set background color
