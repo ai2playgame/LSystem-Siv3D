@@ -3,6 +3,12 @@
 class LSystem
 {
 public:
+
+	struct Command
+	{
+		// Lineを返す
+	};
+
 	LSystem();
 
 	void Set(String token, void* command);

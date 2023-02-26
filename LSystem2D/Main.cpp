@@ -10,21 +10,31 @@ void Main()
 		// 想定する使い方
 		LSystem lSystem {最初の直線のサイズを指定};
 		LSystem::Operator minusOperator;
-		minusOperator.Set(Lineを引数に取って、Vec2を返す関数オブジェクト);
+		minusOperator.Set(minusOperator);
 		lSystem.Set("-", minusOperator)
 
 		LSystem::Operator plusOperator;
-		plusOpeartor.Set(Lineを引数に取って、Vec2を返す関数オブジェクト);
+		plusOpeartor.Set(plusOperator);
 		lSystem.Set("+", plusOperator);
 
 		LSystem::Operator fOperator;
-		fOpeartor.Set(Lineを引数に取って、Vec2を返す関数オブジェクト);
+		fOpeartor.Set(fOperator);
 		lSystem.Set("F", fOperator);
 
 		lSystem.Init("F"); // 初期状態
 		lSystem.Rule("F", "F-F++F--F"); // Fをどう置き換えるか
 
 		lSystem.Draw(level);
+
+		コッホ曲線は
+		1. まっすぐ
+		2. 左に60度回転
+		3. まっすぐ
+		4. 右に60度回転
+		5. 右に60度回転
+		6. まっすぐ
+		7. 左に60度回転
+		8. まっすぐ
 	*/
 
 	while (System::Update())
