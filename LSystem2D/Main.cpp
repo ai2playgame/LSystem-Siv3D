@@ -1,10 +1,11 @@
-﻿# include <Siv3D.hpp> // OpenSiv3D v0.6.6
+﻿#include <Siv3D.hpp> // OpenSiv3D v0.6.6
+#include "Turtle.h"
 
 void Main()
 {
 	Window::Resize(1280, 720);
 	Window::SetStyle(WindowStyle::Sizable);
-	Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
+	Scene::SetBackground(Palette::Black);
 
 	/*
 		// 想定する使い方
@@ -26,7 +27,7 @@ void Main()
 
 		lSystem.Draw(level);
 
-		コッホ曲線は
+		コッホ曲線は、まっすぐを以下に置き換え続ければ出来る
 		1. まっすぐ
 		2. 左に60度回転
 		3. まっすぐ
@@ -37,8 +38,16 @@ void Main()
 		8. まっすぐ
 	*/
 
+	aiGraphics::Turtle turtle{ Scene::Center() };
+	turtle.forward(100);
+	turtle.right(45_deg);
+	turtle.forward(50);
+	turtle.left(45_deg);
+	turtle.forward(50);
+
 	while (System::Update())
 	{
+		turtle.draw(3, Palette::Green);
 	}
 }
 

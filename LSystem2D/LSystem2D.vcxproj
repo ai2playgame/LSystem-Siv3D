@@ -213,7 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KochCurve.h" />
+    <ClInclude Include="LSystem.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Turtle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
