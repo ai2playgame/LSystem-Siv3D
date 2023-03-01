@@ -1,20 +1,36 @@
 ﻿#pragma once
+#include <functional>
+#include <map>
+#include "Turtle.h"
 
-class LSystem
+namespace aiGraphics
 {
-public:
-
-	struct Command
+	class LSystem
 	{
-		// Lineを返す
+	public:
+		LSystem() = default;
+
+		void Set(const String& token, std::function<void> command)
+		{
+			commandMap[token] = command;
+		}
+
+		void Init(const String& start)
+		{
+			initState = start;
+		}
+
+		void Rule(const String token, String replaced)
+		{
+			replacementMap[token] = replaced;
+		}
+
+		void Draw(uint32 state);
+
+	private:
+		String initState;
+		std::map<String, std::function<void>> commandMap;
+		std::map<String, String> replacementMap;
 	};
-
-	LSystem();
-
-	void Set(String token, void* command);
-
-	void Init(String start);
-	void Rule(String token, String replaced);
-	void Draw(uint32 state);
-};
+}
 
