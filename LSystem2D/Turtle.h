@@ -23,7 +23,7 @@ namespace aiGraphics
 			penPosition = penPosition;
 		}
 
-		void forward(float length)
+		void forward(double length)
 		{
 			Vec2 nextPosition = penPosition + (dir * length);
 			lines.push_back(
@@ -32,11 +32,11 @@ namespace aiGraphics
 			penPosition = nextPosition;
 		}
 
-		void right(float degree)
+		void right(double degree)
 		{
 			dir = dir.rotate(degree);
 		}
-		void left(float degree) { right(-degree); }
+		void left(double degree) { right(-degree); }
 
 		void draw(double thickness, const Color& color) const
 		{
