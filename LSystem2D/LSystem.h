@@ -26,10 +26,13 @@ namespace aiGraphics
 		void draw(uint32 state, double thickness, Color color = Palette::White) const;
 
 	private:
+		String getStateString(uint32 state) const;
+
+	private:
+		Vec2 startPosition;
 		String initString;
 		std::map<char32_t, std::function<void(Turtle&)>> commandMap;
-		std::map<char32_t, String> replacementMap;
-		Vec2 startPosition;
+		std::map<char32_t, String> replacementRules;
 	};
 }
 

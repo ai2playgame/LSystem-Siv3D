@@ -16,7 +16,7 @@ namespace aiGraphics
 		Turtle(Vec2 start)
 			: penStartPosition{ start }
 			, penPosition{ start }
-			, dir{ 1, 0 }
+			, dir{ 0, -1 }
 		{}
 
 		void clear();
@@ -28,6 +28,15 @@ namespace aiGraphics
 		void right(double degree);
 		// 左に指定度回転する
 		void left(double degree) { right(-degree); }
+
+		// 亀を指定した位置に移動させる
+		void move(Vec2 position) { this->penPosition = position; }
+		void rotate(Vec2 dir) { this->dir = dir; }
+
+		// 今の亀の位置を取得する
+		Vec2 getTurtlePosition() const;
+		// 今の亀の向きを取得する
+		Vec2 getTurtleDir() const;
 
 		void draw(double thickness, const Color& color) const;
 
