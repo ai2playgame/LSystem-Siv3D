@@ -34,7 +34,7 @@ namespace aiGraphics
 		{
 			Turtle turtle(startPosition);
 			String str = initString;
-			for (int i = 0; i < state; ++i)
+			for (auto i = 0u; i < state; ++i)
 			{
 				String Buffer;
 				for (const auto c : str)
