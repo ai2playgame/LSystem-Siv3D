@@ -3,7 +3,9 @@
 
 namespace aiGraphics
 {
-	// タートルグラフィック
+	/*
+	 * タートルグラフィックを実現するクラス
+	 */
 	class Turtle
 	{
 	public:
@@ -17,34 +19,17 @@ namespace aiGraphics
 			, dir{ 1, 0 }
 		{}
 
-		void clear()
-		{
-			lines.clear();
-			penPosition = penPosition;
-		}
+		void clear();
 
-		void forward(double length)
-		{
-			Vec2 nextPosition = penPosition + (dir * length);
-			lines.push_back(
-				Line{ penPosition, nextPosition }
-			);
-			penPosition = nextPosition;
-		}
+		// まっすぐ直線を引く
+		void forward(double length);
 
-		void right(double degree)
-		{
-			dir = dir.rotate(degree);
-		}
+		// 右に指定度回転する
+		void right(double degree);
+		// 左に指定度回転する
 		void left(double degree) { right(-degree); }
 
-		void draw(double thickness, const Color& color) const
-		{
-			for (const auto& line : lines)
-			{
-				line.draw(thickness, color);
-			}
-		}
+		void draw(double thickness, const Color& color) const;
 
 	private:
 		const Vec2 penStartPosition;

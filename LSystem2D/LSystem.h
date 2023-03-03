@@ -10,55 +10,20 @@ namespace aiGraphics
 	public:
 		LSystem() = default;
 
-		void move(Vec2 position)
-		{
-			startPosition = position;
-		}
+		// 描画開始位置を指定する
+		void move(Vec2 position);
 
-		void set(const char32_t token, std::function<void(Turtle&)> command)
-		{
-			commandMap[token] = command;
-		}
+		// 文字とそれに対応する操作を紐づける
+		void set(const char32_t token, std::function<void(Turtle&)> command);
 
-		void init(const String& start)
-		{
-			initString = start;
-		}
+		// 初期状態の文字列を指定する
+		void init(const String& start);
 
-		void rule(const char32_t token, String replaced)
-		{
-			replacementMap[token] = replaced;
-		}
+		// 文字の置き換えルールを指定する
+		void rule(const char32_t token, String replaced);
 
-		void draw(uint32 state, double thickness, Color color = Palette::White) const
-		{
-			Turtle turtle(startPosition);
-			String str = initString;
-			for (auto i = 0u; i < state; ++i)
-			{
-				String Buffer;
-				for (const auto c : str)
-				{
-					if (replacementMap.contains(c))
-					{
-						// 置換ルールに合致するなら指定した文字列に置き換える
-						Buffer += replacementMap.at(c);
-					}
-					else
-					{
-						Buffer += c;
-					}
-				}
-				str = Buffer;
-			}
-
-			for (const auto token : str)
-			{
-				commandMap.at(token)(turtle);
-			}
-
-			turtle.draw(thickness, color);
-		}
+		// 描画する
+		void draw(uint32 state, double thickness, Color color = Palette::White) const;
 
 	private:
 		String initString;
