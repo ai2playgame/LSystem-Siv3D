@@ -10,6 +10,8 @@ namespace aiGraphics
 	public:
 		LSystem() = default;
 
+		void clear();
+
 		// 描画開始位置を指定する
 		void move(Vec2 position);
 
@@ -21,6 +23,9 @@ namespace aiGraphics
 
 		// 文字の置き換えルールを指定する
 		void rule(const char32_t token, String replaced);
+
+		// 入力データが正しいか調べる
+		bool validate() const;
 
 		// 描画する
 		void draw(uint32 state, double thickness, Color color = Palette::White) const;

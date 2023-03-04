@@ -16,7 +16,7 @@ namespace aiGraphics
 		Turtle(Vec2 start)
 			: penStartPosition{ start }
 			, penPosition{ start }
-			, dir{ 0, -1 }
+			, penDirection{ 0, -1 }
 		{}
 
 		void clear();
@@ -31,7 +31,7 @@ namespace aiGraphics
 
 		// 亀を指定した位置に移動させる
 		void move(Vec2 position) { this->penPosition = position; }
-		void rotate(Vec2 dir) { this->dir = dir; }
+		void rotate(Vec2 dir) { this->penDirection = dir; }
 
 		// 今の亀の位置を取得する
 		Vec2 getTurtlePosition() const;
@@ -44,7 +44,7 @@ namespace aiGraphics
 		const Vec2 penStartPosition;
 
 		Vec2 penPosition;
-		Vec2 dir;
+		Vec2 penDirection;
 
 		Array<Line> lines;
 	};

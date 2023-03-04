@@ -9,7 +9,7 @@ void aiGraphics::Turtle::clear()
 
 void aiGraphics::Turtle::forward(double length)
 {
-	Vec2 nextPosition = penPosition + (dir * length);
+	Vec2 nextPosition = penPosition + (penDirection * length);
 	lines.push_back(
 		Line{ penPosition, nextPosition }
 	);
@@ -18,7 +18,7 @@ void aiGraphics::Turtle::forward(double length)
 
 void aiGraphics::Turtle::right(double degree)
 {
-	dir = dir.rotate(degree);
+	penDirection = penDirection.rotate(degree);
 }
 
 Vec2 aiGraphics::Turtle::getTurtlePosition() const
@@ -35,7 +35,7 @@ Vec2 aiGraphics::Turtle::getTurtlePosition() const
 
 Vec2 aiGraphics::Turtle::getTurtleDir() const
 {
-	return dir;
+	return penDirection;
 }
 
 void aiGraphics::Turtle::draw(double thickness, const Color& color) const
