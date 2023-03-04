@@ -10,13 +10,11 @@ void Main()
 
 	Camera2D camera{ Vec2{0, 0}, 1.0 };
 
-	size_t radioIndex = 1;
+	size_t level = 1;
+
 	while (System::Update())
 	{
-		size_t level = radioIndex;
-
-		SimpleGUI::RadioButtons(radioIndex, { U"LV1", U"LV3", U"LV6", U"LV9", U"LV12" }, Vec2{ 20, 20 });
-
+		size_t level = 5;
 		// LSystemセットアップ
 		aiGraphics::LSystem lSystem;
 		lSystem.move(Vec2{ 0, 0 });
